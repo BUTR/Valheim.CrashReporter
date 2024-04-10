@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>$(DefineConstants);HARMONYEXTENSIONS_HARMONYX</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="BepInEx.BaseLib" Version="5.4.21" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BUTR.CrashReport.Renderer.ImGui" Version="13.0.0.68" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="Harmony.Extensions" Version="3.2.0.77" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+    <PackageReference Include="HarmonyX" Version="2.9.0" IncludeAssets="compile" />
+    <PackageReference Include="UnityEngine.Modules" Version="2022.3.13" IncludeAssets="compile" />
+  </ItemGroup>
+
+  <Target Name="ExcludeAssembliesFromILRepack" BeforeTargets="ILRepackPrepareBuild">
+    <PropertyGroup>
+      <ILRepackExcludeAssemblies>$(ILRepackExcludeAssemblies);$(ProjectDir)$(OutputPath)cimgui.dll;</ILRepackExcludeAssemblies>
+      <ILRepackExcludeAssemblies>$(ILRepackExcludeAssemblies);$(ProjectDir)$(OutputPath)BUTR.CrashReport.dll;</ILRepackExcludeAssemblies>
+      <ILRepackExcludeAssemblies>$(ILRepackExcludeAssemblies);$(ProjectDir)$(OutputPath)BUTR.CrashReport.Decompilers.dll;</ILRepackExcludeAssemblies>
+      <ILRepackExcludeAssemblies>$(ILRepackExcludeAssemblies);$(ProjectDir)$(OutputPath)BUTR.CrashReport.Models.dll;</ILRepackExcludeAssemblies>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="CopyNativeDependencies" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <NativeFilesToCopy Include="$(PkgBUTR_CrashReport_Renderer_ImGui)\runtimes\win-x64\native\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(NativeFilesToCopy)" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="@(NativeFilesToCopy)" DestinationFolder="$(OutDir)" />
+  </Target>
+  
+</Project>

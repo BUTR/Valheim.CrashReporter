@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Valheim.CrashReporter", "Valheim.CrashReporter\Valheim.CrashReporter.csproj", "{97E0AEC3-3CB3-447C-98E9-FB0FC1C9779B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97E0AEC3-3CB3-447C-98E9-FB0FC1C9779B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E0AEC3-3CB3-447C-98E9-FB0FC1C9779B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E0AEC3-3CB3-447C-98E9-FB0FC1C9779B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E0AEC3-3CB3-447C-98E9-FB0FC1C9779B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
